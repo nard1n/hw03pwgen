@@ -2,6 +2,12 @@
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var confirmLength = "";
+var confirmLowerCase = "";
+var confrimUpperCase = "";
+var confirmNumber = "";
+var confirmSpcChar = "";
+var passwordOutput = "";
 
 
 // Password requirements in arrays
@@ -10,9 +16,6 @@ var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialChar = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?","~"];
 
-// Variables for checking criteria
-var confirmLength = "";
-var confirmLowerCase = "";
 
 // Creating Function for generating the password
 function generatePassword () {
@@ -24,12 +27,21 @@ function generatePassword () {
     var confirmLength = (prompt("How many characters would you like the password to be? (between 8-128)"));
   }
 
-  // Repeat back how many charactes the user will have  
-  alert(`Your password will have ${confirmLength} characters`);
-
+  // Repeat back how many characters the user chose
+  alert(`Your password will consist of ${confirmLength} characters`);
 }
 
-// logic and loops if wrong for each criteria/confirm popup - true if OK is pressed
+// logic to determine if ..and loops if wrong for each criteria/confirm popup - true if OK is pressed
+var confirmLowerCase = confirm("Click OK if you'd like to include a lowercase letter");
+var confirmUpperCase = confirm ("Click Ok if you'd like to include an uppercase letter");
+var confirmNumber = confirm ("Click Ok if you'd like to include a number");
+var confirmSpcChar = confirm ("Click Ok if you'd like to include a special character");
+
+  //loop if answer is outside of parameter
+  while(confirmLowerCase === false) {
+    alert("You must choose at least one parameter");
+    var confirmLowerCase = confirm("Click OK if you'd like to include a lowercase letter");
+  }
 
 
 
