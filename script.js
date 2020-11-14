@@ -16,7 +16,16 @@ var confirmLowerCase = "";
 
 // Creating Function for generating the password
 function generatePassword () {
-  console.log("hello there");
+  var confirmLength = (prompt("How many characters would you like the password to be? (between 8-128)"));
+
+  //Loop if the number is outside 8 and 128
+  while (confirmLength < 8 || confirmLength > 128 || confirmLength === NaN || confirmLength === null) {
+    alert("Password length must be between 8 and 128 characters in length. Try again");
+    var confirmLength = (prompt("How many characters would you like the password to be? (between 8-128)"));
+  }
+
+  // Repeat back how many charactes the user will have  
+  alert(`Your password will have ${confirmLength} characters`);
 
 }
 
