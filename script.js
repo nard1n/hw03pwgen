@@ -1,15 +1,12 @@
 // Password generator will create a password that has 8-128 characters based on criteria specified by the user through a series of prompts
 
-
 var generateBtn = document.querySelector("#generate");
-
 
 // List of available values for password generator to choose from listed in arrays
 var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialChar = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?","~"];
-
 
 // Creating Function for generating the password
 function generatePassword () {
@@ -24,24 +21,29 @@ function generatePassword () {
   }
   //console.log(confirmLength.length); //to test length
   // Repeat back how many characters the user chose
-  alert(`Your password will consist of ${confirmLength} characters`);
+  //alert(`Your password will consist of ${confirmLength} characters`); //optional- to alert user how many chars they chose
 
 // logic to determine if ..and loops if wrong for each criteria/confirm popup - true if OK is pressed
 
-var confirmLowerCase = confirm("Click OK if you'd like to include a lowercase letter");
-var confirmUpperCase = confirm ("Click Ok if you'd like to include an uppercase letter");
-var confirmNumber = confirm ("Click Ok if you'd like to include a number");
-var confirmSpcChar = confirm ("Click Ok if you'd like to include a special character");
+  var confirmLowerCase;
+  var confirmNumber;
+  var confirmUpperCase;
+  var confirmSpcChar;
+
+  function charTypeConfirm () {
+    confirmLowerCase = confirm("Click OK if you'd like to include a lowercase letter");
+    confirmUpperCase = confirm ("Click Ok if you'd like to include an uppercase letter");
+    confirmNumber = confirm ("Click Ok if you'd like to include a number");
+    confirmSpcChar = confirm ("Click Ok if you'd like to include a special character");
+  }
+
+  charTypeConfirm ();
 
   //loop if answer is outside of parameter
   while(confirmLowerCase === false && confirmUpperCase === false && confirmNumber === false && confirmSpcChar === false) {
     alert("You must choose at least 1 character type. Try again.");
-    var confirmLowerCase = confirm("Click OK if you'd like to include a lowercase letter");
-    var confirmUpperCase = confirm ("Click Ok if you'd like to include an uppercase letter");
-    var confirmNumber = confirm ("Click Ok if you'd like to include a number");
-    var confirmSpcChar = confirm ("Click Ok if you'd like to include a special character");
+    charTypeConfirm ();
   }
-
 
 // concatenated the random character into the passwordOutput array
 
