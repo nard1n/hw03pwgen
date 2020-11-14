@@ -7,7 +7,7 @@ var confirmLowerCase = "";
 var confrimUpperCase = "";
 var confirmNumber = "";
 var confirmSpcChar = "";
-var passwordOutput = "";
+var passwordOutput = [];
 
 
 // Password requirements in arrays
@@ -29,7 +29,6 @@ function generatePassword () {
   //console.log(confirmLength.length); <- to test
   // Repeat back how many characters the user chose
   alert(`Your password will consist of ${confirmLength} characters`);
-}
 
 // logic to determine if ..and loops if wrong for each criteria/confirm popup - true if OK is pressed
 var confirmLowerCase = confirm("Click OK if you'd like to include a lowercase letter");
@@ -46,6 +45,7 @@ var confirmSpcChar = confirm ("Click Ok if you'd like to include a special chara
     var confirmSpcChar = confirm ("Click Ok if you'd like to include a special character");
   }
 
+}
 
 // Write password to the #password input
 function writePassword() {
