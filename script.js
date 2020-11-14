@@ -19,14 +19,14 @@ var specialChar = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?","~
 
 // Creating Function for generating the password
 function generatePassword () {
-  var confirmLength = (prompt("How many characters would you like the password to be? (between 8-128)"));
+  var confirmLength = (prompt("How many characters would you like the password to be? \n(between 8-128)"));
 
   //Loop if the number is outside 8 and 128
   while (confirmLength < 8 || confirmLength > 128 || confirmLength === NaN || confirmLength === null) {
     alert("Password length must be between 8 and 128 characters in length. Try again");
     var confirmLength = (prompt("How many characters would you like the password to be? (between 8-128)"));
   }
-
+  //console.log(confirmLength.length); <- to test
   // Repeat back how many characters the user chose
   alert(`Your password will consist of ${confirmLength} characters`);
 }
@@ -38,11 +38,13 @@ var confirmNumber = confirm ("Click Ok if you'd like to include a number");
 var confirmSpcChar = confirm ("Click Ok if you'd like to include a special character");
 
   //loop if answer is outside of parameter
-  while(confirmLowerCase === false) {
-    alert("You must choose at least one parameter");
+  while(confirmLowerCase === false && confirmUpperCase === false && confirmNumber === false && confirmSpcChar === false) {
+    alert("You must choose at least 1 character type. Try again.");
     var confirmLowerCase = confirm("Click OK if you'd like to include a lowercase letter");
+    var confirmUpperCase = confirm ("Click Ok if you'd like to include an uppercase letter");
+    var confirmNumber = confirm ("Click Ok if you'd like to include a number");
+    var confirmSpcChar = confirm ("Click Ok if you'd like to include a special character");
   }
-
 
 
 // Write password to the #password input
